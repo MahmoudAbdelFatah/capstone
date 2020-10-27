@@ -29,8 +29,14 @@ pipeline {
             }
         }
         stage('Deploy Kubernetes') {
-            steps {
-                sh 'kubectl apply -f kubernetes.yml'
+            steps{
+                  withAWS(credentials: 'aws-static', region: 'us-east-2') {
+                      sh 'aws eks --region us-east-2 update-kubeconfig --name capstone'
+                      sh 'kubectl apply -f kubernetes.yml'
+                      sh 'kubectl get nodes'
+                      sh 'kubectl get deployments'
+                      sh 'kubectl get pod -o wide'
+                  }
             }
         }
     }
