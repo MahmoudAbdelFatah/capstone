@@ -30,7 +30,6 @@ pipeline {
         }
         stage('Deploy Kubernetes') {
             steps {
-                sh 'kubectl get nodes'
                 sh 'kubectl apply -f kubernetes.yml'
             }
         }
