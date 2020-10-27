@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy Kubernetes') {
             steps {
-                sh 'sudo sh kubectl apply -f kubernetes.yml'
+                sh 'sudo kubectl apply -f ./kubernetes.yml'
             }
         }
     }
