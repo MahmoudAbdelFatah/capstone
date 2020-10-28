@@ -29,12 +29,8 @@ pipeline {
             }
         }
         stage('Deploy Kubernetes') {
-            withAWS(credentials: 'aws-credentials', region: 'us-east-2') {
+            withAWS(credentials: 'aws-static', region: 'us-east-2') {
                 steps{
-                    sh 'kubectl apply -f kubernetes.yml'
-                    sh 'kubectl get nodes'
-                    sh 'kubectl get deployments'
-                    sh 'kubectl get pod -o wide'
                 }
             }
         }
