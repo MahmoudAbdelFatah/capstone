@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy Kubernetes') {
             steps{
-                withAWS(credentials: 'aws-static', region: 'us-east-2') {
+                withAWS(credentials: 'aws-credentials', region: 'us-east-2') {
                 }
             }
         }
