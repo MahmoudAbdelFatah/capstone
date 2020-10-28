@@ -29,9 +29,6 @@ pipeline {
             }
         }
         stage('Deploy Kubernetes') {
-            steps{
-                sh 'kubectl get nodes'
-            }
         }
     }
 }
